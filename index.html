@@ -7,139 +7,342 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:  #0F2A4A;
-    --blue:  #4C7BC7;
-    --cream: #F5F1EA;
-    --dark:  #0D0D0D;
-    --white: #FFFFFF;
-    --gray:  #8A8A8A;
-    --light: #F0EDE6;
-    --green: #2E7D52;
-    --orange:#C05C1A;
-    --red:   #B03020;
+    --navy:    #0F2A4A;
+    --blue:    #4C7BC7;
+    --cream:   #F5F1EA;
+    --dark:    #0D0D0D;
+    --white:   #FFFFFF;
+    --gray:    #8A8A8A;
+    --light:   #F0EDE6;
+    --green:   #2E7D52;
+    --orange:  #C05C1A;
+    --red:     #B03020;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; }
 
-  /* COVER */
-  .cover { background: var(--navy); color: var(--cream); padding: 72px 60px 60px; position: relative; overflow: hidden; }
-  .cover::before { content:''; position:absolute; top:-80px; right:-80px; width:340px; height:340px; border-radius:50%; background:rgba(76,123,199,0.1); }
-  .cover::after  { content:''; position:absolute; bottom:-60px; left:40px;  width:200px; height:200px; border-radius:50%; background:rgba(76,123,199,0.06); }
-  .eyebrow { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:18px; }
-  .cover h1 { font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; color:var(--cream); margin-bottom:10px; position:relative; }
-  .cover-sub { font-size:15px; color:rgba(245,241,234,.55); margin-bottom:44px; }
-  .cover-meta { display:flex; gap:36px; flex-wrap:wrap; }
-  .cover-meta-item label { display:block; font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(245,241,234,.4); margin-bottom:3px; }
-  .cover-meta-item span  { font-size:14px; color:var(--cream); font-weight:500; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
 
-  /* SCORE */
-  .score-band { background:var(--blue); padding:28px 60px; display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
-  .score-num  { font-family:'Archivo Black',sans-serif; font-size:60px; color:#fff; line-height:1; }
-  .score-num span { font-size:26px; opacity:.5; }
-  .score-div  { width:2px; height:52px; background:rgba(255,255,255,.2); }
-  .score-txt  { flex:1; min-width:200px; }
-  .score-txt p { color:rgba(255,255,255,.88); font-size:14px; line-height:1.6; }
+  .cover {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 80px 60px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(76,123,199,0.12);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(76,123,199,0.07);
+  }
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover-subtitle {
+    font-size: 16px;
+    color: rgba(245,241,234,0.6);
+    margin-bottom: 50px;
+    font-weight: 400;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,241,234,0.45);
+    margin-bottom: 4px;
+  }
+  .cover-meta-item span {
+    font-size: 14px;
+    color: var(--cream);
+    font-weight: 500;
+  }
 
-  /* ALERT BAND */
-  .alert-band { background:#FEF3E7; border-left:4px solid var(--orange); padding:16px 60px; display:flex; align-items:center; gap:14px; }
-  .alert-band-icon { font-size:20px; }
-  .alert-band p { font-size:13px; color:#7A3A0A; font-weight:500; line-height:1.5; }
-  .alert-band strong { color:#5A2A06; }
+  .score-band {
+    background: var(--blue);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .score-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 64px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .score-number span { font-size: 28px; opacity: 0.55; }
+  .score-divider { width: 2px; height: 56px; background: rgba(255,255,255,0.25); }
+  .score-summary { flex: 1; min-width: 200px; }
+  .score-summary p {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
+  }
 
-  /* LAYOUT */
-  .page { max-width:860px; margin:0 auto; padding:60px 40px; }
-  .section { margin-bottom:68px; }
-  .section-label { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:8px; }
-  .section-title { font-family:'Archivo Black',sans-serif; font-size:26px; color:var(--navy); margin-bottom:28px; padding-bottom:14px; border-bottom:2px solid var(--navy); }
+  .alert-band {
+    background: #FEF3E7;
+    border-left: 4px solid var(--orange);
+    padding: 18px 60px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .alert-band p { font-size: 13px; color: #7A3A0A; font-weight: 500; line-height: 1.5; }
+  .alert-band strong { color: #5A2A06; }
 
-  /* POSITIVE CARDS */
-  .positive-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; }
-  .positive-card { background:var(--white); border-left:3px solid var(--green); padding:18px 20px; border-radius:0 6px 6px 0; }
-  .positive-card-title { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:5px; }
-  .positive-card p { font-size:13px; color:#444; line-height:1.5; }
+  .page { max-width: 860px; margin: 0 auto; padding: 64px 40px; }
+  .section { margin-bottom: 72px; }
+  .section:last-child { margin-bottom: 0; }
 
-  /* ISSUE CARDS */
-  .priority-tag { display:inline-block; padding:4px 14px; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border-radius:20px; margin-bottom:18px; }
-  .priority-tag.alta  { background:#FDECEA; color:var(--red); }
-  .priority-tag.media { background:#FEF3E7; color:var(--orange); }
-  .priority-tag.baixa { background:#E8F5EE; color:var(--green); }
-  .issue-card { background:var(--white); border-radius:8px; padding:22px 26px; margin-bottom:12px; border-top:3px solid transparent; }
-  .issue-card.alta  { border-top-color:var(--red); }
-  .issue-card.media { border-top-color:var(--orange); }
-  .issue-card.baixa { border-top-color:var(--green); }
-  .issue-title { font-family:'Archivo Black',sans-serif; font-size:14px; color:var(--navy); margin-bottom:14px; }
-  .issue-row { display:grid; grid-template-columns:90px 1fr; gap:6px 14px; margin-bottom:6px; align-items:start; }
-  .issue-key { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); padding-top:2px; }
-  .issue-val { font-size:13px; color:#333; line-height:1.5; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--navy);
+  }
 
-  /* TECH TABLE */
-  .tech-table { width:100%; border-collapse:separate; border-spacing:0 7px; }
-  .tech-table td { padding:13px 18px; font-size:13px; background:var(--white); }
-  .tech-table td:first-child { font-weight:600; color:var(--gray); text-transform:uppercase; font-size:10px; letter-spacing:1px; border-radius:6px 0 0 6px; width:170px; }
-  .tech-table td:last-child  { border-radius:0 6px 6px 0; color:var(--navy); font-weight:500; }
-  .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; }
-  .badge-ok   { background:#E8F5EE; color:var(--green); }
-  .badge-warn { background:#FEF3E7; color:var(--orange); }
-  .badge-err  { background:#FDECEA; color:var(--red); }
+  .positive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .positive-card {
+    background: var(--white);
+    border-left: 3px solid var(--green);
+    padding: 20px 22px;
+    border-radius: 0 6px 6px 0;
+  }
+  .positive-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .positive-card p { font-size: 14px; color: #444; line-height: 1.5; }
 
-  /* LEGENDA SYSTEM */
-  .spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
-  .spec-row  { background:var(--white); padding:14px 18px; border-radius:6px; display:flex; justify-content:space-between; align-items:center; }
-  .spec-key  { font-size:11px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:1px; }
-  .spec-val  { font-size:12px; font-weight:600; color:var(--navy); text-align:right; }
+  .priority-block { margin-bottom: 40px; }
+  .priority-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .priority-tag.alta  { background: #FDECEA; color: var(--red); }
+  .priority-tag.media { background: #FEF3E7; color: var(--orange); }
+  .priority-tag.baixa { background: #E8F5EE; color: var(--green); }
 
-  .color-palette { display:flex; gap:14px; margin:20px 0; flex-wrap:wrap; }
-  .color-chip { display:flex; flex-direction:column; align-items:center; gap:6px; }
-  .color-chip-swatch { width:52px; height:52px; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,.15); }
-  .color-chip-label  { font-size:10px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:1px; text-align:center; line-height:1.3; }
-  .color-chip-hex    { font-size:10px; font-family:monospace; color:var(--dark); text-align:center; }
+  .issue-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    border-top: 3px solid transparent;
+  }
+  .issue-card.alta  { border-top-color: var(--red); }
+  .issue-card.media { border-top-color: var(--orange); }
+  .issue-card.baixa { border-top-color: var(--green); }
 
-  .legenda-demo { background:var(--navy); border-radius:12px; padding:36px 28px; position:relative; overflow:hidden; margin:24px 0; }
-  .legenda-demo::before { content:'DEMONSTRAÇÃO VISUAL'; position:absolute; top:12px; left:18px; font-size:9px; font-weight:700; letter-spacing:2px; color:rgba(76,123,199,.5); }
-  .legenda-demo-text { font-family:'Archivo Black',sans-serif; font-size:20px; color:#F5F1EA; text-align:center; line-height:1.4; text-shadow:2px 2px 4px #0D0D0D, -1px -1px 3px #0D0D0D; margin-bottom:12px; }
-  .legenda-demo-text .hl { color:#4C7BC7; }
-  .legenda-demo-note { text-align:center; font-size:10px; color:rgba(245,241,234,.4); margin-top:18px; letter-spacing:1px; }
+  .issue-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .issue-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 8px 16px;
+    margin-bottom: 8px;
+    align-items: start;
+  }
+  .issue-row:last-child { margin-bottom: 0; }
+  .issue-key {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    padding-top: 2px;
+  }
+  .issue-val { font-size: 14px; color: #333; line-height: 1.5; }
 
-  /* EDIÇÃO TABLE */
-  .edit-table { width:100%; border-collapse:separate; border-spacing:0 7px; }
-  .edit-table td { padding:13px 18px; font-size:13px; background:var(--white); vertical-align:top; }
-  .edit-table td:first-child { width:150px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); border-radius:6px 0 0 6px; }
-  .edit-table td:last-child   { border-radius:0 6px 6px 0; color:#333; }
-  .edit-table td:last-child strong { color:var(--navy); }
+  .legenda-spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .spec-row {
+    background: var(--white);
+    padding: 16px 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .spec-key { font-size: 12px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+  .spec-val { font-size: 13px; font-weight: 600; color: var(--navy); text-align: right; }
 
-  /* GUIDE GRID */
-  .guide-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .guide-card { background:var(--white); border-radius:8px; padding:20px 22px; }
-  .guide-card-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--blue); margin-bottom:7px; }
-  .guide-card-body  { font-size:13px; color:#444; line-height:1.5; }
-  .guide-card-body strong { color:var(--navy); }
+  .color-palette { display: flex; gap: 12px; margin: 24px 0; flex-wrap: wrap; }
+  .color-chip { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .color-chip-swatch { width: 56px; height: 56px; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .color-chip-label { font-size: 10px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; text-align: center; line-height: 1.3; }
+  .color-chip-hex { font-size: 11px; font-family: monospace; color: var(--dark); text-align: center; }
 
-  /* CHECKLIST */
-  .checklist-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .checklist-block { background:var(--white); border-radius:8px; padding:22px; }
-  .checklist-block-title { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--light); }
-  .check-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:9px; font-size:12px; color:#333; line-height:1.4; }
-  .check-item::before { content:'☐'; font-size:14px; color:var(--blue); flex-shrink:0; margin-top:-1px; }
+  .legenda-demo {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .legenda-demo::before {
+    content: 'DEMONSTRAÇÃO VISUAL';
+    position: absolute;
+    top: 14px; left: 20px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(76,123,199,0.6);
+  }
+  .legenda-demo-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    color: #F5F1EA;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px #0D0D0D, -1px -1px 3px #0D0D0D;
+    margin-bottom: 14px;
+  }
+  .legenda-demo-text .highlight { color: #4C7BC7; }
+  .legenda-demo-text .normal { color: #F5F1EA; }
+  .legenda-demo-note {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(245,241,234,0.4);
+    margin-top: 20px;
+    letter-spacing: 1px;
+  }
 
-  /* CONCLUSÃO */
-  .conclusion-card { background:var(--navy); color:var(--cream); border-radius:12px; padding:44px 48px; position:relative; overflow:hidden; }
-  .conclusion-card::before { content:''; position:absolute; top:-50px; right:-50px; width:180px; height:180px; border-radius:50%; background:rgba(76,123,199,.1); }
-  .conclusion-card h3 { font-family:'Archivo Black',sans-serif; font-size:20px; color:var(--cream); margin-bottom:14px; position:relative; }
-  .conclusion-card p  { font-size:14px; color:rgba(245,241,234,.82); line-height:1.65; position:relative; max-width:540px; }
-  .conclusion-card p + p { margin-top:10px; }
+  .tech-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .tech-table tr td { padding: 14px 20px; font-size: 14px; background: var(--white); }
+  .tech-table tr td:first-child {
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-radius: 6px 0 0 6px;
+    width: 180px;
+  }
+  .tech-table tr td:last-child { border-radius: 0 6px 6px 0; color: var(--navy); font-weight: 500; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+  .badge-ok   { background: #E8F5EE; color: var(--green); }
+  .badge-warn { background: #FEF3E7; color: var(--orange); }
+  .badge-err  { background: #FDECEA; color: var(--red); }
 
-  hr.sep { border:none; border-top:1px solid rgba(15,42,74,.12); margin:44px 0; }
+  .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .guide-card { background: var(--white); border-radius: 8px; padding: 22px 24px; }
+  .guide-card-icon { font-size: 22px; margin-bottom: 10px; }
+  .guide-card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--blue); margin-bottom: 8px; }
+  .guide-card-body { font-size: 13px; color: #444; line-height: 1.55; }
+  .guide-card-body strong { color: var(--navy); }
 
-  .footer { background:var(--dark); color:rgba(245,241,234,.4); text-align:center; padding:22px 40px; font-size:11px; letter-spacing:1px; }
-  .footer strong { color:rgba(245,241,234,.65); }
+  .rec-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .rec-table tr td { padding: 14px 20px; font-size: 14px; background: var(--white); vertical-align: top; }
+  .rec-table tr td:first-child { width: 130px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); border-radius: 6px 0 0 6px; }
+  .rec-table tr td:last-child { border-radius: 0 6px 6px 0; color: var(--navy); font-weight: 500; }
 
-  @media(max-width:640px){
-    .cover{padding:44px 24px;}
-    .cover h1{font-size:30px;}
-    .score-band{padding:22px 24px;}
-    .alert-band{padding:14px 24px;}
-    .page{padding:44px 22px;}
-    .spec-grid,.guide-grid,.checklist-grid{grid-template-columns:1fr;}
+  .checklist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .checklist-block { background: var(--white); border-radius: 8px; padding: 24px; }
+  .checklist-block-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--light); }
+  .check-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #333; line-height: 1.4; }
+  .check-item::before { content: '☐'; font-size: 15px; color: var(--blue); flex-shrink: 0; margin-top: -1px; }
+
+  .conclusion-card {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .conclusion-card::before { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: rgba(76,123,199,0.12); }
+  .conclusion-card h3 { font-family: 'Archivo Black', sans-serif; font-size: 22px; color: var(--cream); margin-bottom: 16px; position: relative; }
+  .conclusion-card p { font-size: 15px; color: rgba(245,241,234,0.82); line-height: 1.65; position: relative; max-width: 560px; }
+  .conclusion-card p + p { margin-top: 12px; }
+
+  .footer { background: var(--dark); color: rgba(245,241,234,0.4); text-align: center; padding: 24px 40px; font-size: 12px; letter-spacing: 1px; }
+  .footer strong { color: rgba(245,241,234,0.7); }
+
+  hr.sep { border: none; border-top: 1px solid rgba(15,42,74,0.12); margin: 48px 0; }
+
+  @media (max-width: 640px) {
+    .cover { padding: 48px 28px; }
+    .cover h1 { font-size: 32px; }
+    .score-band { padding: 24px 28px; }
+    .alert-band { padding: 14px 28px; }
+    .page { padding: 48px 24px; }
+    .legenda-spec-grid { grid-template-columns: 1fr; }
+    .guide-grid { grid-template-columns: 1fr; }
+    .checklist-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 22px; }
   }
 </style>
 </head>
@@ -147,22 +350,34 @@
 
 <!-- CAPA -->
 <div class="cover">
-  <p class="eyebrow">Análise de Gravação · Santos Estudio / Edição Estratégica</p>
+  <p class="cover-eyebrow">Análise de Gravação · Santos Estudio / Edição Estratégica</p>
   <h1>Conecta Consulado<br>Léia Campos</h1>
-  <p class="cover-sub">Análise do material bruto — pré-edição</p>
+  <p class="cover-subtitle">Análise do material bruto — pré-edição</p>
   <div class="cover-meta">
-    <div class="cover-meta-item"><label>Arquivo</label><span>Gravação bruta (sem edição)</span></div>
-    <div class="cover-meta-item"><label>Duração</label><span>~52 segundos</span></div>
-    <div class="cover-meta-item"><label>Resolução gravada</label><span>536 × 954</span></div>
-    <div class="cover-meta-item"><label>Data</label><span>Agosto / 2026</span></div>
+    <div class="cover-meta-item">
+      <label>Arquivo</label>
+      <span>Gravação bruta (sem edição)</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Duração</label>
+      <span>~52 segundos</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Resolução gravada</label>
+      <span>536 × 954 px</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Data</label>
+      <span>Agosto / 2026</span>
+    </div>
   </div>
 </div>
 
 <!-- SCORE -->
 <div class="score-band">
-  <div class="score-num">7<span>/10</span></div>
-  <div class="score-div"></div>
-  <div class="score-txt">
+  <div class="score-number">7<span>/10</span></div>
+  <div class="score-divider"></div>
+  <div class="score-summary">
     <p><strong style="color:#fff;">Ponto forte:</strong> comunicação natural e presença em câmera — o conteúdo tem boa energia mesmo sem edição.<br>
     <strong style="color:#fff;">Prioridade urgente:</strong> a resolução de gravação está abaixo do mínimo aceitável para publicação profissional.<br>
     <strong style="color:#fff;">Potencial:</strong> alto, desde que a configuração da câmera seja corrigida nas próximas gravações.</p>
@@ -171,8 +386,7 @@
 
 <!-- ALERT -->
 <div class="alert-band">
-  <div class="alert-band-icon">⚠️</div>
-  <p><strong>Atenção técnica:</strong> este arquivo foi gravado em 536 × 954 px — menos da metade da resolução necessária (1080 × 1920). A edição pode compensar parcialmente, mas a qualidade final será comprometida. A correção precisa acontecer na próxima gravação, não na edição.</p>
+  <p>⚠️ &nbsp;<strong>Atenção técnica:</strong> este arquivo foi gravado em 536 × 954 px — menos da metade da resolução necessária (1080 × 1920). A edição pode compensar parcialmente, mas a qualidade final será comprometida. A correção precisa acontecer na próxima gravação, não na edição.</p>
 </div>
 
 <div class="page">
@@ -191,7 +405,7 @@
         <p>O vídeo começa com close no passaporte — intenção de hook visual forte. A ideia é boa e pode ser bem aproveitada na edição.</p>
       </div>
       <div class="positive-card">
-        <div class="positive-card-title">Presença em câmera</div>
+        <div class="positive-card-title">Presença em Câmera</div>
         <p>Comunicação natural, gesticulação ativa, bom uso do passaporte como prop ao longo de toda a gravação.</p>
       </div>
       <div class="positive-card">
@@ -204,7 +418,7 @@
       </div>
       <div class="positive-card">
         <div class="positive-card-title">Expressividade</div>
-        <p>Expressões faciais variadas e genuínas — surpresa, seriedade, ênfase. Prende a atenção mesmo sem recursos de edição.</p>
+        <p>Expressões faciais variadas e genuínas. Prende a atenção mesmo sem recursos de edição.</p>
       </div>
     </div>
   </div>
@@ -216,54 +430,56 @@
     <p class="section-label">Seção 02</p>
     <h2 class="section-title">Oportunidades de melhoria</h2>
 
-    <div style="margin-bottom:36px;">
+    <div class="priority-block">
       <span class="priority-tag alta">● Prioridade Alta</span>
 
       <div class="issue-card alta">
         <div class="issue-title">Resolução de gravação insuficiente — 536 × 954 px</div>
         <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">O arquivo foi gravado em 536 × 954 px — menos de 50% da resolução exigida para publicação profissional em Reels (1080 × 1920).</span></div>
         <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">A edição pode ampliar o frame, mas não recupera detalhes perdidos na gravação. O resultado final ficará menos nítido do que o necessário, especialmente em telas maiores e na compressão do Instagram.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Acessar as configurações da câmera do celular e selecionar resolução 1080p (1920 × 1080 na horizontal, ou o equivalente vertical). Gravar sempre em 1080p ou 4K — nunca abaixo disso.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Acessar as configurações da câmera e selecionar 1080p 60fps antes de gravar. Configuração geralmente em: Câmera → Configurações de vídeo → Qualidade do vídeo.</span></div>
       </div>
 
       <div class="issue-card alta">
         <div class="issue-title">Abertura desfocada compromete o hook</div>
-        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">O primeiro segundo do vídeo mostra o passaporte muito próximo da câmera, causando desfoque total. A câmera não conseguiu fazer autofoco nessa distância e velocidade.</span></div>
-        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">Os primeiros 1-2 segundos são decisivos para a retenção no Reels. Uma abertura desfocada transmite falta de cuidado e pode causar abandono imediato.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Na edição: cortar os frames desfocados e começar do momento em que o passaporte já está em foco, ou usar esse frame desfocado brevemente (máx. 0.5s) como transição para a apresentadora em foco.</span></div>
+        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">O primeiro segundo do vídeo mostra o passaporte muito próximo da câmera, causando desfoque total — a câmera não conseguiu fazer autofoco na distância e velocidade usadas.</span></div>
+        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">Os primeiros 1-2 segundos são decisivos para a retenção no Reels. Uma abertura desfocada pode causar abandono imediato.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Na edição: cortar os frames desfocados e começar do momento em que o passaporte já está em foco. Na próxima gravação: posicionar o passaporte a pelo menos 30 cm da câmera antes de começar.</span></div>
       </div>
 
       <div class="issue-card alta">
-        <div class="issue-title">FPS: 30fps — abaixo do padrão recomendado</div>
-        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">O arquivo está em 30fps. O padrão do guia de marca para vídeos é 60fps, que garante mais fluidez e melhora a percepção de qualidade.</span></div>
-        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">Em movimentos de mão e gesticulação (que a apresentadora usa bastante), 30fps pode gerar leve engasgamento visual — menos perceptível em repouso, mais evidente quando o braço se move rápido.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Configurar a câmera para gravar em 1080p 60fps (ou 4K 60fps). A configuração geralmente está em Câmera → Configurações de vídeo → Qualidade.</span></div>
+        <div class="issue-title">FPS em 30fps — abaixo do padrão recomendado</div>
+        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">O arquivo está em 30fps. O padrão do guia de marca é 60fps, que garante mais fluidez e melhora a percepção de qualidade, especialmente nos gestos e movimentos de mão.</span></div>
+        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">Em momentos de gesticulação rápida — que a apresentadora usa bastante — 30fps pode gerar leve engasgamento visual.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Configurar a câmera para 1080p 60fps (ou 4K 60fps) antes da próxima gravação.</span></div>
       </div>
     </div>
 
-    <div style="margin-bottom:36px;">
+    <div class="priority-block">
       <span class="priority-tag media">● Prioridade Média</span>
 
       <div class="issue-card media">
         <div class="issue-title">Iluminação com sombra lateral</div>
-        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">A luz natural da janela à esquerda cria sombra visível no lado direito do rosto da apresentadora.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Adicionar anel de luz frontal ou rebatedor branco no lado direito para equilibrar. Custo baixo, ganho visual alto.</span></div>
+        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">A luz natural da janela à esquerda cria sombra visível no lado direito do rosto.</span></div>
+        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">Não impede a leitura do conteúdo, mas reduz levemente a sensação de produção profissional.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Adicionar anel de luz frontal ou rebatedor branco do lado direito para equilibrar. Custo baixo, ganho visual alto.</span></div>
       </div>
 
       <div class="issue-card media">
-        <div class="issue-title">Cenário neutro demais</div>
+        <div class="issue-title">Background dilui a identidade visual</div>
         <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">A parede de grade cinza e os girassóis ao fundo não reforçam a identidade visual do Conecta Consulado nem transmitem autoridade no tema consular.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Buscar um ângulo mais limpo ou usar um backdrop na cor azul-marinho (#0F2A4A) da marca. Girassóis podem ser retirados do campo de visão.</span></div>
+        <div class="issue-row"><span class="issue-key">Impacto</span><span class="issue-val">O cenário não colabora com a autoridade que a Léia transmite na fala.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Retirar os girassóis do campo de visão e buscar um ângulo mais limpo. Opção: backdrop simples na cor azul-marinho (#0F2A4A) ou off-white da paleta da marca.</span></div>
       </div>
     </div>
 
-    <div>
+    <div class="priority-block">
       <span class="priority-tag baixa">● Prioridade Baixa</span>
 
       <div class="issue-card baixa">
         <div class="issue-title">Enquadramento ligeiramente baixo em alguns momentos</div>
-        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">Em alguns frames o topo da cabeça fica próximo da borda superior. Pode ser ajustado levemente posicionando a câmera um pouco mais alta.</span></div>
-        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Câmera na altura dos olhos ou ligeiramente acima. Cabeça deve ter um respiro de pelo menos 10-15% de espaço até a borda superior.</span></div>
+        <div class="issue-row"><span class="issue-key">Problema</span><span class="issue-val">Em alguns frames o topo da cabeça fica muito próximo da borda superior do vídeo.</span></div>
+        <div class="issue-row"><span class="issue-key">Recomendação</span><span class="issue-val">Posicionar a câmera na altura dos olhos ou ligeiramente acima. A cabeça deve ter espaço de 10-15% até a borda superior.</span></div>
       </div>
     </div>
   </div>
@@ -275,9 +491,11 @@
     <p class="section-label">Seção 03</p>
     <h2 class="section-title">Padrão de legenda a aplicar na edição</h2>
 
-    <p style="font-size:14px;color:#444;line-height:1.65;margin-bottom:26px;">O arquivo bruto não tem legendas — o que é esperado. Na edição, aplicar o sistema abaixo conforme o guia de marca do Santos Estudio.</p>
+    <p style="font-size:15px;color:#444;line-height:1.65;margin-bottom:28px;">
+      O arquivo bruto não tem legendas — o que é esperado. Na edição, aplicar o sistema abaixo conforme o guia de marca Santos Estudio / Edição Estratégica (Parte 2 — Editor de Vídeo).
+    </p>
 
-    <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;">Paleta da legenda</p>
+    <p style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:16px;">Paleta de cores da legenda</p>
     <div class="color-palette">
       <div class="color-chip">
         <div class="color-chip-swatch" style="background:#F5F1EA;border:1px solid #ddd;"></div>
@@ -291,42 +509,53 @@
       </div>
       <div class="color-chip">
         <div class="color-chip-swatch" style="background:#0D0D0D;border:1px solid #ddd;"></div>
-        <div class="color-chip-label">Contorno</div>
+        <div class="color-chip-label">Contorno<br>da legenda</div>
         <div class="color-chip-hex">#0D0D0D</div>
       </div>
       <div class="color-chip">
         <div class="color-chip-swatch" style="background:#0F2A4A;"></div>
-        <div class="color-chip-label">Fundo<br>de card</div>
+        <div class="color-chip-label">Fundo de<br>card/lower third</div>
         <div class="color-chip-hex">#0F2A4A</div>
       </div>
     </div>
 
-    <div class="spec-grid" style="margin-top:22px;">
+    <div class="legenda-spec-grid" style="margin-top:28px;">
       <div class="spec-row"><span class="spec-key">Fonte</span><span class="spec-val">Archivo Black</span></div>
       <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">Black (único peso)</span></div>
       <div class="spec-row"><span class="spec-key">Tamanho</span><span class="spec-val">60–80px (base 1080px)</span></div>
-      <div class="spec-row"><span class="spec-key">Cor padrão</span><span class="spec-val">#F5F1EA + contorno #0D0D0D</span></div>
-      <div class="spec-row"><span class="spec-key">Destaque</span><span class="spec-val">#4C7BC7 — máx. 2–3 palavras</span></div>
-      <div class="spec-row"><span class="spec-key">Posição</span><span class="spec-val">Fixa — mesmo lugar em todos os vídeos</span></div>
-      <div class="spec-row"><span class="spec-key">Máx. linhas</span><span class="spec-val">2 por bloco</span></div>
-      <div class="spec-row"><span class="spec-key">Animação</span><span class="spec-val">Fade ou pop suave — sem exageros</span></div>
+      <div class="spec-row"><span class="spec-key">Cor principal</span><span class="spec-val">#F5F1EA (off-white)</span></div>
+      <div class="spec-row"><span class="spec-key">Cor de destaque</span><span class="spec-val">#4C7BC7 (azul discreto)</span></div>
+      <div class="spec-row"><span class="spec-key">Contorno</span><span class="spec-val">#0D0D0D — sempre presente</span></div>
+      <div class="spec-row"><span class="spec-key">Posição</span><span class="spec-val">Safe zone — posição fixa em todos os vídeos</span></div>
+      <div class="spec-row"><span class="spec-key">Safe zone</span><span class="spec-val">Topo: livre (~250px) · Base: livre (~350px)</span></div>
+      <div class="spec-row"><span class="spec-key">Máx. de linhas</span><span class="spec-val">2 linhas por bloco</span></div>
+      <div class="spec-row"><span class="spec-key">Tempo de leitura</span><span class="spec-val">1–2 segundos por bloco</span></div>
+      <div class="spec-row"><span class="spec-key">Animação</span><span class="spec-val">Entrada simples (fade ou pop suave)</span></div>
+      <div class="spec-row"><span class="spec-key">Consistência</span><span class="spec-val">Mesma posição em todos os vídeos — sem exceção</span></div>
     </div>
 
+    <p style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:4px;margin-top:36px;">Demonstração visual do padrão</p>
     <div class="legenda-demo">
-      <div class="legenda-demo-text"><span style="color:#F5F1EA;">O consulado não liberou</span> <span class="hl">agendamento?</span></div>
-      <div class="legenda-demo-text"><span class="hl">Aqui está</span> <span style="color:#F5F1EA;">o que você pode fazer</span></div>
-      <div class="legenda-demo-text" style="margin-bottom:0;"><span style="color:#F5F1EA;">Eu atendo brasileiros há </span><span class="hl">quatro anos</span></div>
-      <div class="legenda-demo-note">ARCHIVO BLACK · #F5F1EA · Destaque #4C7BC7 · Contorno #0D0D0D</div>
+      <div class="legenda-demo-text">
+        <span class="normal">O consulado não liberou </span><span class="highlight">agendamento?</span>
+      </div>
+      <div class="legenda-demo-text">
+        <span class="highlight">Aqui está </span><span class="normal">o que você pode fazer</span>
+      </div>
+      <div class="legenda-demo-text" style="margin-bottom:0;">
+        <span class="normal">Eu atendo brasileiros há </span><span class="highlight">quatro anos</span>
+      </div>
+      <div class="legenda-demo-note">ARCHIVO BLACK · #F5F1EA · Destaque em #4C7BC7 · Contorno #0D0D0D</div>
     </div>
 
-    <div style="background:var(--white);border-radius:8px;padding:22px 26px;">
-      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:10px;">Itens obrigatórios na edição deste vídeo</p>
-      <p style="font-size:13px;color:#444;line-height:1.6;">
-        <strong style="color:var(--navy);">1. Legenda queimada</strong> — Archivo Black, sistema de cores acima, posição fixa.<br>
-        <strong style="color:var(--navy);">2. Logo / marca d'água</strong> — Conecta Consulado, do primeiro ao último segundo, posição fixa discreta.<br>
-        <strong style="color:var(--navy);">3. Intro (2–3s)</strong> — logo animado + tagline em Clash Display + som de assinatura.<br>
-        <strong style="color:var(--navy);">4. Outro com CTA</strong> — peça padrão reutilizável em todos os vídeos.<br>
-        <strong style="color:var(--navy);">5. Corte na abertura</strong> — eliminar os frames desfocados do passaporte.
+    <div style="background:var(--white);border-radius:8px;padding:24px 28px;margin-top:16px;">
+      <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:12px;">Itens obrigatórios na edição deste vídeo</p>
+      <p style="font-size:14px;color:#444;line-height:1.7;">
+        <strong style="color:var(--navy);">1. Corte na abertura</strong> — eliminar os frames desfocados do passaporte. Começar no primeiro frame com foco.<br>
+        <strong style="color:var(--navy);">2. Legenda queimada</strong> — Archivo Black, sistema de cores acima, posição fixa.<br>
+        <strong style="color:var(--navy);">3. Logo / marca d'água</strong> — Conecta Consulado, do primeiro ao último segundo, posição fixa discreta.<br>
+        <strong style="color:var(--navy);">4. Intro (2–3s)</strong> — logo animado + tagline em Clash Display + som de assinatura.<br>
+        <strong style="color:var(--navy);">5. Outro com CTA</strong> — peça padrão reutilizável em todos os vídeos.
       </p>
     </div>
   </div>
@@ -336,20 +565,20 @@
   <!-- 4. TÉCNICO -->
   <div class="section">
     <p class="section-label">Seção 04</p>
-    <h2 class="section-title">Configuração técnica do arquivo</h2>
+    <h2 class="section-title">Formato e configuração técnica</h2>
 
     <table class="tech-table">
       <tr><td>Resolução</td><td>536 × 954 px <span class="badge badge-err">✗ Abaixo do mínimo — deve ser 1080 × 1920</span></td></tr>
       <tr><td>Proporção</td><td>9:16 (vertical) <span class="badge badge-ok">✓ Correto</span></td></tr>
       <tr><td>FPS</td><td>30 fps <span class="badge badge-warn">⚑ Recomendado: 60fps</span></td></tr>
-      <tr><td>Codec</td><td>H.264 <span class="badge badge-ok">✓ Compatível</span></td></tr>
+      <tr><td>Codec de vídeo</td><td>H.264 <span class="badge badge-ok">✓ Compatível</span></td></tr>
       <tr><td>Bitrate</td><td>898 kbps <span class="badge badge-warn">⚑ Baixo — ideal acima de 8 Mbps no bruto</span></td></tr>
-      <tr><td>Áudio</td><td>AAC Estéreo · 44.1kHz <span class="badge badge-ok">✓ Adequado</span></td></tr>
-      <tr><td>Duração</td><td>~52 segundos <span class="badge badge-ok">✓ Ideal para Reels</span></td></tr>
+      <tr><td>Áudio</td><td>AAC Estéreo · 44.1kHz <span class="badge badge-ok">✓ Padrão profissional</span></td></tr>
+      <tr><td>Duração</td><td>~52 segundos <span class="badge badge-ok">✓ Dentro do ideal para Reels</span></td></tr>
     </table>
 
-    <div style="background:var(--white);border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:16px 20px;margin-top:14px;">
-      <p style="font-size:13px;color:#333;line-height:1.55;">
+    <div style="background:var(--white);border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:18px 22px;margin-top:16px;">
+      <p style="font-size:13px;color:#444;line-height:1.55;">
         <strong style="color:var(--red);">Como está →</strong> Gravação em 536 × 954 px, 30fps, 898 kbps<br>
         <strong style="color:var(--green);">Como deve ser →</strong> Gravação em 1080 × 1920 px, 60fps, mínimo 10–20 Mbps no bruto
       </p>
@@ -361,16 +590,16 @@
   <!-- 5. GRAVAÇÃO -->
   <div class="section">
     <p class="section-label">Seção 05</p>
-    <h2 class="section-title">Recomendações para as próximas gravações</h2>
+    <h2 class="section-title">Recomendações para a gravação</h2>
 
-    <table class="edit-table">
+    <table class="rec-table">
       <tr>
         <td>Resolução</td>
-        <td><strong>1080p ou 4K</strong> — configurar nas opções de câmera do celular antes de gravar. Nunca abaixo de 1080p.</td>
+        <td>1080p ou 4K — configurar nas opções da câmera antes de gravar. Nunca abaixo de 1080p.</td>
       </tr>
       <tr>
         <td>FPS</td>
-        <td><strong>60fps</strong> — configuração geralmente em Câmera → Configurações de vídeo → 1080p 60fps.</td>
+        <td>60fps — configuração geralmente em Câmera → Configurações de vídeo → 1080p 60fps.</td>
       </tr>
       <tr>
         <td>Enquadramento</td>
@@ -378,11 +607,11 @@
       </tr>
       <tr>
         <td>Iluminação</td>
-        <td>Anel de luz frontal ou rebatedor no lado direito para eliminar a sombra lateral. A janela sozinha não ilumina os dois lados uniformemente.</td>
+        <td>Anel de luz frontal ou rebatedor no lado direito para eliminar a sombra lateral. A janela sozinha não ilumina uniformemente os dois lados.</td>
       </tr>
       <tr>
         <td>Áudio</td>
-        <td>Microfone de lapela atual está funcionando bem. Manter. Gravar em ambiente sem eco (tapetes e cortinas ajudam).</td>
+        <td>Microfone de lapela atual está funcionando bem. Manter. Gravar em ambiente sem eco.</td>
       </tr>
       <tr>
         <td>Cenário</td>
@@ -390,7 +619,7 @@
       </tr>
       <tr>
         <td>Abertura</td>
-        <td>A ideia do passaporte como hook funciona — mas posicionar a câmera a pelo menos 30 cm de distância para garantir foco automático correto antes de começar a falar.</td>
+        <td>A ideia do passaporte como hook funciona — posicionar a câmera a pelo menos 30 cm de distância para garantir foco automático antes de iniciar a fala.</td>
       </tr>
     </table>
   </div>
@@ -400,31 +629,37 @@
   <!-- 6. GUIA RÁPIDO -->
   <div class="section">
     <p class="section-label">Seção 06</p>
-    <h2 class="section-title">Guia rápido — padrão dos próximos vídeos</h2>
+    <h2 class="section-title">Guia rápido — próximos vídeos</h2>
     <div class="guide-grid">
       <div class="guide-card">
+        <div class="guide-card-icon">✦</div>
         <div class="guide-card-title">Legenda</div>
-        <div class="guide-card-body"><strong>Archivo Black</strong> · off-white #F5F1EA · destaque azul #4C7BC7 · contorno #0D0D0D · posição fixa · máx. 2 linhas</div>
+        <div class="guide-card-body"><strong>Archivo Black</strong> · off-white #F5F1EA · destaque azul #4C7BC7 · contorno preto #0D0D0D · posição fixa · máx. 2 linhas por bloco</div>
       </div>
       <div class="guide-card">
+        <div class="guide-card-icon">✦</div>
         <div class="guide-card-title">Hook / Título</div>
-        <div class="guide-card-body"><strong>Clash Display Bold</strong> para títulos animados de abertura. Texto conciso, direto à dor do público.</div>
+        <div class="guide-card-body"><strong>Clash Display Bold</strong> para títulos e hooks no início do vídeo. Texto conciso, direto à dor do público.</div>
       </div>
       <div class="guide-card">
+        <div class="guide-card-icon">✦</div>
         <div class="guide-card-title">Cores permitidas</div>
-        <div class="guide-card-body"><strong>#F5F1EA</strong> · <strong>#4C7BC7</strong> · <strong>#0D0D0D</strong> · <strong>#0F2A4A</strong>. Nada fora desse sistema.</div>
+        <div class="guide-card-body">Apenas: <strong>#F5F1EA</strong> · <strong>#4C7BC7</strong> · <strong>#0D0D0D</strong> · <strong>#0F2A4A</strong>. Nada fora desse sistema.</div>
       </div>
       <div class="guide-card">
+        <div class="guide-card-icon">✦</div>
         <div class="guide-card-title">Intro / Outro</div>
-        <div class="guide-card-body">2–3s cada. Logo animado + Clash Display + som de assinatura único. CTA padrão reutilizado.</div>
+        <div class="guide-card-body">2–3 segundos cada. Logo animado + nome/tagline em Clash Display + som de assinatura único. Outro com CTA padrão reutilizado.</div>
       </div>
       <div class="guide-card">
-        <div class="guide-card-title">Logo</div>
-        <div class="guide-card-body">Marca d'água do 1º ao último segundo. Posição fixa. Opacidade 40–60%.</div>
+        <div class="guide-card-icon">✦</div>
+        <div class="guide-card-title">Logo / Marca d'água</div>
+        <div class="guide-card-body">Presente do primeiro ao último segundo. Posição fixa (canto superior direito). Opacidade discreta (40–60%). Nunca interfere com o rosto.</div>
       </div>
       <div class="guide-card">
+        <div class="guide-card-icon">✦</div>
         <div class="guide-card-title">O que evitar</div>
-        <div class="guide-card-body">Azul neon · fontes fora do guia · legenda sem contorno · frames desfocados na abertura · resolução abaixo de 1080p.</div>
+        <div class="guide-card-body">Azul neon · fontes fora do guia · legenda sem contorno · abertura desfocada · resolução abaixo de 1080p · troca de posição da legenda entre vídeos.</div>
       </div>
     </div>
   </div>
@@ -438,7 +673,7 @@
     <div class="checklist-grid">
       <div class="checklist-block">
         <div class="checklist-block-title">Antes de gravar</div>
-        <div class="check-item">Resolução: 1080p ou 4K</div>
+        <div class="check-item">Resolução: 1080p ou 4K configurado</div>
         <div class="check-item">FPS: 60fps configurado</div>
         <div class="check-item">Câmera na altura dos olhos</div>
         <div class="check-item">Iluminação frontal equilibrada</div>
@@ -450,22 +685,22 @@
         <div class="checklist-block-title">Durante a edição</div>
         <div class="check-item">Cortar frames desfocados da abertura</div>
         <div class="check-item">Legenda em Archivo Black</div>
-        <div class="check-item">#F5F1EA + destaque #4C7BC7</div>
-        <div class="check-item">Contorno #0D0D0D presente</div>
-        <div class="check-item">Posição fixa da legenda</div>
-        <div class="check-item">Logo marca d'água em todo vídeo</div>
-        <div class="check-item">Intro 2–3s padronizado</div>
-        <div class="check-item">Outro com CTA padrão</div>
-        <div class="check-item">Correção de cor e áudio</div>
+        <div class="check-item">Cor off-white #F5F1EA + destaque #4C7BC7</div>
+        <div class="check-item">Contorno preto #0D0D0D presente</div>
+        <div class="check-item">Posição da legenda fixa</div>
+        <div class="check-item">Safe zone respeitada (topo e base)</div>
+        <div class="check-item">Logo como marca d'água em todo o vídeo</div>
+        <div class="check-item">Intro (2–3s) com logo + tagline</div>
+        <div class="check-item">Outro padrão com CTA reutilizável</div>
       </div>
       <div class="checklist-block">
         <div class="checklist-block-title">Antes de publicar</div>
-        <div class="check-item">Exportar em 1080 × 1920 px</div>
-        <div class="check-item">Legendas revisadas</div>
+        <div class="check-item">Exportar em 1080 × 1920 confirmado</div>
+        <div class="check-item">Legendas revisadas e sem erro</div>
         <div class="check-item">Logo visível em qualquer frame</div>
-        <div class="check-item">Primeiros 3s com hook forte</div>
+        <div class="check-item">Primeiros 3 segundos com hook forte</div>
         <div class="check-item">CTA claro no encerramento</div>
-        <div class="check-item">Identidade visual consistente</div>
+        <div class="check-item">Identidade visual coerente do início ao fim</div>
       </div>
     </div>
   </div>
@@ -478,9 +713,9 @@
     <h2 class="section-title">Conclusão</h2>
     <div class="conclusion-card">
       <h3>O material tem potencial — a correção é simples.</h3>
-      <p>A Léia entrega uma gravação com boa energia, comunicação natural e uso inteligente do passaporte como elemento visual. O que precisa de atenção não é a performance, é a configuração técnica da câmera.</p>
-      <p>A resolução de 536 × 954 é o único ponto crítico que precisa ser corrigido antes da próxima gravação. Uma mudança de 30 segundos nas configurações do celular resolve o problema na raiz — e garante que o trabalho de edição entregue o resultado visual que o conteúdo merece.</p>
-      <p>Com a configuração correta, o próximo vídeo vai partir de uma base técnica sólida, e a edição pode se concentrar no que realmente importa: storytelling, ritmo e identidade visual.</p>
+      <p>A Léia entrega uma gravação com boa energia, comunicação natural e uso inteligente do passaporte como elemento visual. O que precisa de atenção não é a performance — é a configuração técnica da câmera.</p>
+      <p>A resolução de 536 × 954 é o único ponto crítico que precisa ser corrigido antes da próxima gravação. Uma mudança de 30 segundos nas configurações do celular resolve o problema na raiz e garante que o trabalho de edição entregue o resultado visual que o conteúdo merece.</p>
+      <p>Com a configuração correta, o próximo vídeo vai partir de uma base técnica sólida — e a edição pode se concentrar no que realmente importa: storytelling, ritmo e identidade visual.</p>
     </div>
   </div>
 
